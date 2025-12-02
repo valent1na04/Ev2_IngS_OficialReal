@@ -1,0 +1,47 @@
+services:
+  backend:
+    build: .
+    ports:
+      - "8080:8080"
+    depends_on:
+      - database
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://database:3306/mysql
+      SPRING_DATASOURCE_USERNAME: vale
+      SPRING_DATASOURCE_PASSWORD: milongo
+    networks:
+      - backend
+  
+  database:
+    image: mysql:latest
+    environment:
+      MYSQL_ROOT_PASSWORD: example
+      MYSQL_DATABASE: mysql
+      MYSQL_USER: vale
+      MYSQL_PASSWORD: milongo
+    ports:
+      - "3306:3306"
+    volumes:
+      - db_data:/var/lib/mysql
+    networks:
+      - backend
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    environment:
+      PMA_HOST: database
+      MYSQL_ROOT_PASSWORD: example
+    ports:
+      - "8081:80"
+    depends_on:
+      - database
+    networks:
+      - backend
+
+    
+networks:
+  backend:
+    driver: bridge
+  
+volumes:
+  db_data:
