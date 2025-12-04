@@ -3,11 +3,9 @@
 Este proyecto es una API REST para gestionar **muebles, cotizaciones, variantes, ventas y detalles de cotización**.
 Utiliza **Spring Boot**, **MySQL** y **Docker Compose**, e implementa arquitectura en capas con patrones de diseño para mantener un código limpio y escalable.
 
----
+## Tecnologías Principales
 
-## 🚀 Tecnologías Principales
-
-* Java 17
+* Java
 * Spring Boot 3
 * Spring Data JPA
 * MySQL
@@ -50,7 +48,7 @@ docker-compose up --build
 
 ## 📚 Endpoints Principales
 
-> Documentación completa en el informe
+> La documentación completa está en el informe!!!
 
 ### **Muebles**
 
@@ -100,3 +98,44 @@ Detalles en el informe
 * Controller Pattern
 * Uso de Builder/Factory en entidades específicas
 * Beans Singleton por configuración de Spring
+
+---
+
+## 🧪 Testing (Unit Tests)
+
+✔️ Resumen de Testing
+
+Total de tests: 77
+Frameworks: JUnit 5 + Mockito
+
+Cobertura:
+* Servicios
+* Controladores
+* Mappers
+* Strategy Pattern
+
+Todos los tests pasan correctamente
+
+✔️ Ejecutar todos los tests
+```bash
+./mvnw test
+```
+
+✔️ Ejecutar un test específico
+```bash
+./mvnw test -Dtest=MuebleServiceTest
+```
+
+✔️ Organización de los tests
+src/test/java/cl/ubiobio/tareita/
+├── controllers/
+├── mappers/
+├── services/
+└── strategy/
+
+
+
+Los tests siguen el patrón AAA (Arrange – Act – Assert), usan mocks para independizar capas y validan tanto casos normales como excepciones y edge cases.
+
+> 📦 Ejecución del Proyecto (sin Docker)
+> ./mvnw spring-boot:run
