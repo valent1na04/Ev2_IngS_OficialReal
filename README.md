@@ -127,15 +127,16 @@ Todos los tests pasan correctamente
 ```
 
 ✔️ Organización de los tests
+```bash
 src/test/java/cl/ubiobio/tareita/
 ├── controllers/
 ├── mappers/
 ├── services/
 └── strategy/
-
+```
 
 
 Los tests siguen el patrón AAA (Arrange – Act – Assert), usan mocks para independizar capas y validan tanto casos normales como excepciones y edge cases.
 
-> 📦 Ejecución del Proyecto (sin Docker)
+> 📦 Ejecución del Proyecto (sin Docker): 
 > ./mvnw spring-boot:run
